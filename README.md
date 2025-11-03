@@ -43,10 +43,8 @@ All formulas are adapted for the **Azerbaijan region** and its climate condition
 
 ## 📷 Screenshots
 
-![5208475804885519366](https://github.com/user-attachments/assets/ea47815a-e0b8-4c4e-b8d9-df6e09628821)
+<img src="https://github.com/user-attachments/assets/ea47815a-e0b8-4c4e-b8d9-df6e09628821" width="300" alt="App Screenshot">
 
-
----
 
 ### 💡 Author
 
