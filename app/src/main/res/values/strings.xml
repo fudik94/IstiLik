@@ -1,0 +1,25 @@
+<resources>
+    <!-- Название приложения -->
+    <string name="app_name">IstiLik</string>
+
+    <!-- Вводимые данные -->
+    <string name="area">Sahə (m²)</string>
+    <string name="height">Tavan hündürlüyü (m)</string>
+    <string name="housing_type">Ev tipi</string>
+    <string name="walls">Xarici divarların sayı</string>
+    <string name="insulation">İzolyasiya səviyyəsi</string>
+    <string name="floor_type">Mərtəbə tipi</string>
+    <string name="radiator_power">Radiator seksiyası gücü (W)</string>
+    <string name="floor_area">İsti döşəmə sahəsi (m²)</string>
+
+    <!-- Кнопка -->
+    <string name="calculate">Hesabla</string>
+
+    <!-- Ошибка -->
+    <string name="error_fill">⚠️Zəhmət olmasa bütün sahələri doldurun</string>
+
+    <!-- Результаты -->
+    <string name="result_power">♨️Lazımi istilik gücü: %1$d kWt</string>
+    <string name="result_sections">🛠Lazımi radiator seksiyaları sayı: %1$d</string>
+    <string name="result_boiler">🔥Tövsiyə olunan qazan: %1$d kWt</string>
+</resources>

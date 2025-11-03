@@ -1,0 +1,28 @@
+<resources>
+    <!-- Ev tipi -->
+    <string-array name="housing_array">
+        <item>🏢Mənzil</item>
+        <item>🏠Həyət evi</item>
+    </string-array>
+
+    <!-- Xarici divarlar -->
+    <string-array name="walls_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- İstilik izolyasiyası -->
+    <string-array name="insulation_array">
+        <item>Yaxşı</item>
+        <item>Orta</item>
+        <item>Pis</item>
+    </string-array>
+
+    <!-- Mərtəbə tipi -->
+    <string-array name="floor_array">
+        <item>Adi</item>
+        <item>Mansard</item>
+    </string-array>
+</resources>

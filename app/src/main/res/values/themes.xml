@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Базовая тема (только светлая) -->
+    <style name="Base.Theme.IstiVat" parent="Theme.Material3.Light.NoActionBar">
+        <!-- здесь можно кастомизировать -->
+        <!-- <item name="colorPrimary">@color/blue</item> -->
+    </style>
+
+    <style name="Theme.IstiVat" parent="Base.Theme.IstiVat" />
+</resources>
