@@ -1,4 +1,4 @@
-# 🔥 IstiLik — Heating Calculator App
+# 🔥 IstiLik  Heating Calculator App
 
 **IstiLik** is a simple Android application that helps users calculate the required heating power for a room, house, or apartment.  
 It is designed for the **Azerbaijani climate** and uses formulas optimized for local conditions.
@@ -48,5 +48,5 @@ All formulas are adapted for the **Azerbaijan region** and its climate condition
 
 ### 💡 Author
 
-Developed by [Your Name]  
+Developed by Fuad 
 📍 Based in Azerbaijan 🇦🇿  
