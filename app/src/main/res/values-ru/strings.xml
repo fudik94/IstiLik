@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">IstiLik</string>
+
+    <string name="area">Площадь</string>
+    <string name="height">Высота потолка</string>
+    <string name="housing_type">Тип жилья</string>
+    <string name="walls">Количество наружных стен</string>
+    <string name="insulation">Уровень утепления</string>
+    <string name="floor_type">Тип этажа</string>
+    <string name="system_type">Тип системы</string>
+    <string name="radiator_power">Мощность секции радиатора</string>
+    <string name="floor_area">Площадь тёплого пола</string>
+    <string name="dhw_points">Точки ГВС</string>
+    <string name="unit_square_meter">м²</string>
+    <string name="unit_meter">м</string>
+    <string name="unit_watt">Вт</string>
+
+    <string name="calculate">Рассчитать</string>
+    <string name="reset">Сбросить</string>
+    <string name="share_report">Поделиться отчётом</string>
+
+    <string name="menu_change_language">Сменить язык</string>
+    <string name="menu_about">О приложении</string>
+    <string name="menu_history">История расчётов</string>
+    <string name="language_title">Выберите язык</string>
+    <string name="about_message">IstiLik помогает оценить теплопотери и мощность котла.</string>
+    <string name="history_empty">История расчётов пуста</string>
+    <string name="history_entry">%1$s • %2$s м² • %3$d кВт</string>
+    <string name="clear_history">Очистить историю</string>
+    <string name="history_cleared">История очищена</string>
+
+    <string name="error_fill">Пожалуйста, заполните все поля</string>
+    <string name="error_required">Это поле обязательно</string>
+    <string name="error_invalid_area">Площадь должна быть 5–1000 м²</string>
+    <string name="error_invalid_height">Высота должна быть 2–6 м</string>
+    <string name="error_invalid_radiator">Мощность радиатора должна быть 50–500 Вт</string>
+    <string name="error_invalid_floor_area">Площадь тёплого пола должна быть 0–%1$.0f м²</string>
+
+    <string name="result_placeholder">Здесь появится результат</string>
+    <string name="result_power">Требуемая мощность отопления: %1$.1f кВт</string>
+    <string name="result_sections">Необходимое количество секций: %1$d</string>
+    <string name="result_boiler">Рекомендуемый котёл: %1$d кВт</string>
+    <string name="report_title">Отчёт по тепловому расчёту</string>
+    <string name="report_share_title">Поделиться отчётом</string>
+    <string name="report_share_error">Не удалось создать отчёт</string>
+    <string name="report_share_message">Отправьте отчёт через WhatsApp или другое приложение.</string>
+</resources>
