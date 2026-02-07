@@ -1,25 +1,47 @@
 <resources>
-    <!-- Название приложения -->
     <string name="app_name">IstiLik</string>
 
-    <!-- Вводимые данные -->
-    <string name="area">Sahə (m²)</string>
-    <string name="height">Tavan hündürlüyü (m)</string>
+    <string name="area">Sahə</string>
+    <string name="height">Tavan hündürlüyü</string>
     <string name="housing_type">Ev tipi</string>
     <string name="walls">Xarici divarların sayı</string>
     <string name="insulation">İzolyasiya səviyyəsi</string>
     <string name="floor_type">Mərtəbə tipi</string>
-    <string name="radiator_power">Radiator seksiyası gücü (W)</string>
-    <string name="floor_area">İsti döşəmə sahəsi (m²)</string>
+    <string name="system_type">Sistem tipi</string>
+    <string name="radiator_power">Radiator seksiyası gücü</string>
+    <string name="floor_area">İsti döşəmə sahəsi</string>
+    <string name="dhw_points">İsti su nöqtələri</string>
+    <string name="unit_square_meter">m²</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_watt">W</string>
 
-    <!-- Кнопка -->
     <string name="calculate">Hesabla</string>
+    <string name="reset">Sıfırla</string>
+    <string name="share_report">Hesabatı paylaş</string>
 
-    <!-- Ошибка -->
-    <string name="error_fill">⚠️Zəhmət olmasa bütün sahələri doldurun</string>
+    <string name="menu_change_language">Dili dəyiş</string>
+    <string name="menu_about">Tətbiq haqqında</string>
+    <string name="menu_history">Hesablama tarixçəsi</string>
+    <string name="language_title">Dil seçin</string>
+    <string name="about_message">IstiLik tətbiqi istilik yükünü və qazan gücünü hesablayır.</string>
+    <string name="history_empty">Hesablama tarixçəsi boşdur</string>
+    <string name="history_entry">%1$s • %2$s m² • %3$d kW</string>
+    <string name="clear_history">Tarixçəni təmizlə</string>
+    <string name="history_cleared">Tarixçə silindi</string>
 
-    <!-- Результаты -->
-    <string name="result_power">♨️Lazımi istilik gücü: %1$d kWt</string>
-    <string name="result_sections">🛠Lazımi radiator seksiyaları sayı: %1$d</string>
-    <string name="result_boiler">🔥Tövsiyə olunan qazan: %1$d kWt</string>
+    <string name="error_fill">Zəhmət olmasa bütün sahələri doldurun</string>
+    <string name="error_required">Bu sahə tələb olunur</string>
+    <string name="error_invalid_area">Sahə 5–1000 m² aralığında olmalıdır</string>
+    <string name="error_invalid_height">Hündürlük 2–6 m aralığında olmalıdır</string>
+    <string name="error_invalid_radiator">Radiator gücü 50–500 W aralığında olmalıdır</string>
+    <string name="error_invalid_floor_area">İsti döşəmə sahəsi 0–%1$.0f m² aralığında olmalıdır</string>
+
+    <string name="result_placeholder">Nəticə burada görünəcək</string>
+    <string name="result_power">Lazımi istilik gücü: %1$.1f kW</string>
+    <string name="result_sections">Lazımi radiator seksiyaları sayı: %1$d</string>
+    <string name="result_boiler">Tövsiyə olunan qazan: %1$d kW</string>
+    <string name="report_title">İstilik hesablaması hesabatı</string>
+    <string name="report_share_title">Hesabatı paylaş</string>
+    <string name="report_share_error">Hesabat yaradılmadı</string>
+    <string name="report_share_message">Hesabatı WhatsApp və digər tətbiqlər vasitəsilə paylaşa bilərsiniz.</string>
 </resources>
