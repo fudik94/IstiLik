@@ -1,9 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Базовая тема (только светлая) -->
-    <style name="Base.Theme.IstiVat" parent="Theme.Material3.Light.NoActionBar">
-        <!-- здесь можно кастомизировать -->
-        <!-- <item name="colorPrimary">@color/blue</item> -->
+    <style name="Theme.IstiVat" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnBackground">@color/on_background</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">@bool/use_light_system_bars</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">@bool/use_light_system_bars</item>
     </style>
-
-    <style name="Theme.IstiVat" parent="Base.Theme.IstiVat" />
 </resources>
