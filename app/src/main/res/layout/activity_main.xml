@@ -1,190 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/gray_light">
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
 
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="40dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.Material3.Dark"
+        app:title="@string/app_name"
+        app:titleTextColor="?attr/colorOnPrimary"
+        app:popupTheme="@style/ThemeOverlay.Material3.Light" />
 
-        <!-- Sahə -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="8dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/area"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutArea"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/area"
+            app:startIconDrawable="@drawable/ic_area"
+            app:suffixText="@string/unit_square_meter">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editArea"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="m²"
                 android:inputType="numberDecimal"
                 tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Hündürlük -->
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutHeight"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="12dp"
+            android:hint="@string/height"
+            app:startIconDrawable="@drawable/ic_height"
+            app:suffixText="@string/unit_meter">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="@string/height"
-                android:textSize="16sp"/>
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editHeight"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="m"
                 android:inputType="numberDecimal"
                 tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Mənzil tipi -->
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutHousing"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/housing_type"
             android:layout_marginTop="12dp"
-            android:textStyle="bold"/>
+            android:hint="@string/housing_type"
+            app:endIconMode="dropdown_menu"
+            app:startIconDrawable="@drawable/ic_home">
 
-        <Spinner
-            android:id="@+id/spinnerHousing"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"/>
-
-        <!-- Xarici divarlar -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/walls"
-            android:layout_marginTop="12dp"
-            android:textStyle="bold"/>
-
-        <Spinner
-            android:id="@+id/spinnerWalls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"/>
-
-        <!-- İstilik izolyasiyası -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/insulation"
-            android:layout_marginTop="12dp"
-            android:textStyle="bold"/>
-
-        <Spinner
-            android:id="@+id/spinnerInsulation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"/>
-
-        <!-- Mərtəbə tipi -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/floor_type"
-            android:layout_marginTop="12dp"
-            android:textStyle="bold"/>
-
-        <Spinner
-            android:id="@+id/spinnerFloor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"/>
-
-        <!-- Radiator seksiyası gücü -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="12dp">
-
-            <TextView
-                android:layout_width="0dp"
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoHousing"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/radiator_power"
-                android:textStyle="bold"
-                android:textSize="16sp"/>
+                android:clickable="true"
+                android:inputType="none"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:importantForAutofill="no"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutWalls"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/walls"
+            app:endIconMode="dropdown_menu"
+            app:startIconDrawable="@drawable/ic_wall">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoWalls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:inputType="none"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:importantForAutofill="no"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutInsulation"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/insulation"
+            app:endIconMode="dropdown_menu"
+            app:startIconDrawable="@drawable/ic_insulation">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoInsulation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:inputType="none"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:importantForAutofill="no"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutFloor"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/floor_type"
+            app:endIconMode="dropdown_menu"
+            app:startIconDrawable="@drawable/ic_floor">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoFloor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:inputType="none"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:importantForAutofill="no"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutSystem"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/system_type"
+            app:endIconMode="dropdown_menu"
+            app:startIconDrawable="@drawable/ic_floor_heating">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoSystem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:inputType="none"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:importantForAutofill="no"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutRadiatorPower"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/radiator_power"
+            app:startIconDrawable="@drawable/ic_radiator"
+            app:suffixText="@string/unit_watt">
+
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editRadiatorPower"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="180"
-                android:inputType="number"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
-
-        <!-- İsti döşəmə sahəsi -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="12dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="@string/floor_area"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/editFloorArea"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:hint="m²"
                 android:inputType="numberDecimal"
                 tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Hesabla düyməsi -->
-        <Button
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutFloorArea"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/floor_area"
+            app:startIconDrawable="@drawable/ic_floor_heating"
+            app:suffixText="@string/unit_square_meter">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editFloorArea"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutDhwPoints"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/dhw_points"
+            app:endIconMode="dropdown_menu"
+            app:startIconDrawable="@drawable/ic_radiator">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoDhwPoints"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:inputType="none"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:importantForAutofill="no"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalculate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:text="@string/calculate"/>
+            android:text="@string/calculate"
+            android:textSize="18sp"
+            app:icon="@drawable/ic_calculate"
+            app:iconPadding="8dp" />
 
-        <!-- Nəticə -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReset"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/reset" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/share_report"
+            app:icon="@drawable/ic_share"
+            app:iconPadding="8dp" />
+
         <TextView
             android:id="@+id/textResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginTop="24dp"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
-</ScrollView>
+            android:layout_marginTop="20dp"
+            android:text="@string/result_placeholder"
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
