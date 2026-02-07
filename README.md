@@ -18,12 +18,15 @@ It is designed for the **Azerbaijani climate** and uses formulas optimized for l
   - Required radiator sections  
   - Total heating power (kWt)  
   - Recommended boiler power
-- Simple and clean design  
+- Material Design 3 UI with dark mode  
+- Live input validation  
+- Saves the last inputs and results locally  
+- PDF report sharing (e.g. via WhatsApp)  
 - Optimized for Android devices
 
 ## 🌍 Language
 
-Currently, the application interface is available **only in Azerbaijani**.  
+The interface is available in **Azerbaijani**, with prepared resources for **English** and **Russian**.  
 All formulas are adapted for the **Azerbaijan region** and its climate conditions.
 
 ## ⚙️ Technologies
@@ -35,10 +38,8 @@ All formulas are adapted for the **Azerbaijan region** and its climate condition
 
 ## 🚀 Future Plans
 
-- Add **Russian** and **English** translations  
-- Improve UI design with modern components  
-- Add dark mode and icon set  
-- Save user inputs and last results  
+- Add more detailed climate presets  
+- Export results to additional formats  
 
 
 ## 📷 Screenshots
