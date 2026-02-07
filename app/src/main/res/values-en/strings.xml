@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">IstiLik</string>
+
+    <string name="area">Area</string>
+    <string name="height">Ceiling height</string>
+    <string name="housing_type">Housing type</string>
+    <string name="walls">Exterior wall count</string>
+    <string name="insulation">Insulation level</string>
+    <string name="floor_type">Floor type</string>
+    <string name="system_type">System type</string>
+    <string name="radiator_power">Radiator section power</string>
+    <string name="floor_area">Underfloor heating area</string>
+    <string name="dhw_points">DHW points</string>
+    <string name="unit_square_meter">m²</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_watt">W</string>
+
+    <string name="calculate">Calculate</string>
+    <string name="reset">Reset</string>
+    <string name="share_report">Share report</string>
+
+    <string name="menu_change_language">Change language</string>
+    <string name="menu_about">About app</string>
+    <string name="menu_history">Calculation history</string>
+    <string name="language_title">Select language</string>
+    <string name="about_message">IstiLik helps estimate heating load and boiler size.</string>
+    <string name="history_empty">No calculation history yet</string>
+    <string name="history_entry">%1$s • %2$s m² • %3$d kW</string>
+    <string name="clear_history">Clear history</string>
+    <string name="history_cleared">History cleared</string>
+
+    <string name="error_fill">Please fill in all fields</string>
+    <string name="error_required">This field is required</string>
+    <string name="error_invalid_area">Area must be between 5–1000 m²</string>
+    <string name="error_invalid_height">Height must be between 2–6 m</string>
+    <string name="error_invalid_radiator">Radiator power must be between 50–500 W</string>
+    <string name="error_invalid_floor_area">Underfloor area must be between 0–%1$.0f m²</string>
+
+    <string name="result_placeholder">Your result will appear here</string>
+    <string name="result_power">Required heating power: %1$.1f kW</string>
+    <string name="result_sections">Required radiator sections: %1$d</string>
+    <string name="result_boiler">Recommended boiler: %1$d kW</string>
+    <string name="report_title">Heating calculation report</string>
+    <string name="report_share_title">Share report</string>
+    <string name="report_share_error">Report could not be created</string>
+    <string name="report_share_message">Share the report via WhatsApp or another app.</string>
+</resources>
