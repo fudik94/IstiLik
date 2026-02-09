@@ -50,4 +50,4 @@ All formulas are adapted for the **Azerbaijan region** and its climate condition
 ### 💡 Author
 
 Developed by Fuad 
-📍 Based in Azerbaijan 🇦🇿  
+📍 Based in Estonia  
