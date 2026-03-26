@@ -44,4 +44,30 @@
     <string name="report_share_title">Share report</string>
     <string name="report_share_error">Report could not be created</string>
     <string name="report_share_message">Share the report via WhatsApp or another app.</string>
+
+    <!-- Dual mode -->
+    <string name="advanced_params_show">Advanced parameters ▼</string>
+    <string name="advanced_params_hide">Hide parameters ▲</string>
+    <string name="save_to_history">Save to history</string>
+
+    <!-- Housing toggle labels -->
+    <string name="housing_apartment">Apartment</string>
+    <string name="housing_house">House</string>
+
+    <!-- System toggle labels -->
+    <string name="system_radiators">Radiators</string>
+    <string name="system_underfloor">Underfloor</string>
+    <string name="system_mixed">Mixed</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_calculator">Calculator</string>
+    <string name="nav_history">History</string>
+
+    <!-- Result card labels -->
+    <string name="result_label_power">Required power</string>
+    <string name="result_label_sections">Radiator sections</string>
+    <string name="result_label_boiler">Recommended boiler</string>
+    <string name="result_dash">—</string>
+    <string name="result_unit_kw">kW</string>
+    <string name="result_unit_sections">pcs</string>
 </resources>
