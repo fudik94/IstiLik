@@ -44,4 +44,30 @@
     <string name="report_share_title">Поделиться отчётом</string>
     <string name="report_share_error">Не удалось создать отчёт</string>
     <string name="report_share_message">Отправьте отчёт через WhatsApp или другое приложение.</string>
+
+    <!-- Dual mode -->
+    <string name="advanced_params_show">Расширенные параметры ▼</string>
+    <string name="advanced_params_hide">Скрыть параметры ▲</string>
+    <string name="save_to_history">Сохранить в историю</string>
+
+    <!-- Housing toggle labels -->
+    <string name="housing_apartment">Квартира</string>
+    <string name="housing_house">Дом</string>
+
+    <!-- System toggle labels -->
+    <string name="system_radiators">Радиаторы</string>
+    <string name="system_underfloor">Тёплый пол</string>
+    <string name="system_mixed">Смешанный</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_calculator">Расчёт</string>
+    <string name="nav_history">История</string>
+
+    <!-- Result card labels -->
+    <string name="result_label_power">Требуемая мощность</string>
+    <string name="result_label_sections">Секций радиатора</string>
+    <string name="result_label_boiler">Рекомендуемый котёл</string>
+    <string name="result_dash">—</string>
+    <string name="result_unit_kw">кВт</string>
+    <string name="result_unit_sections">шт</string>
 </resources>

@@ -44,4 +44,30 @@
     <string name="report_share_title">Hesabatı paylaş</string>
     <string name="report_share_error">Hesabat yaradılmadı</string>
     <string name="report_share_message">Hesabatı WhatsApp və digər tətbiqlər vasitəsilə paylaşa bilərsiniz.</string>
+
+    <!-- Dual mode -->
+    <string name="advanced_params_show">Əlavə parametrlər ▼</string>
+    <string name="advanced_params_hide">Əlavə parametrləri gizlət ▲</string>
+    <string name="save_to_history">Tarixçəyə əlavə et</string>
+
+    <!-- Housing toggle labels -->
+    <string name="housing_apartment">Mənzil</string>
+    <string name="housing_house">Həyət evi</string>
+
+    <!-- System toggle labels -->
+    <string name="system_radiators">Radiatorlar</string>
+    <string name="system_underfloor">İsti döşəmə</string>
+    <string name="system_mixed">Qarışıq</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_calculator">Hesablama</string>
+    <string name="nav_history">Tarixçə</string>
+
+    <!-- Result card labels -->
+    <string name="result_label_power">Lazımi güc</string>
+    <string name="result_label_sections">Radiator seksiyaları</string>
+    <string name="result_label_boiler">Tövsiyə olunan qazan</string>
+    <string name="result_dash">—</string>
+    <string name="result_unit_kw">kW</string>
+    <string name="result_unit_sections">ədəd</string>
 </resources>
