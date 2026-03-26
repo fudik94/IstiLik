@@ -1,273 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/colorSurface">
+    android:background="@color/bg_app">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.Material3.Dark"
+        android:background="@color/bg_card"
         app:title="@string/app_name"
-        app:titleTextColor="?attr/colorOnPrimary"
-        app:popupTheme="@style/ThemeOverlay.Material3.Light" />
+        app:titleTextColor="@color/text_primary"
+        app:subtitleTextColor="@color/text_secondary" />
 
-    <ScrollView
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true">
+        android:layout_weight="1" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_card"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_selector"
+        app:itemTextColor="@color/bottom_nav_selector" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutArea"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/area"
-            app:startIconDrawable="@drawable/ic_area"
-            app:suffixText="@string/unit_square_meter">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editArea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutHeight"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/height"
-            app:startIconDrawable="@drawable/ic_height"
-            app:suffixText="@string/unit_meter">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editHeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutHousing"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/housing_type"
-            app:endIconMode="dropdown_menu"
-            app:startIconDrawable="@drawable/ic_home">
-
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/autoHousing"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:inputType="none"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:importantForAutofill="no"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutWalls"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/walls"
-            app:endIconMode="dropdown_menu"
-            app:startIconDrawable="@drawable/ic_wall">
-
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/autoWalls"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:inputType="none"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:importantForAutofill="no"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutInsulation"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/insulation"
-            app:endIconMode="dropdown_menu"
-            app:startIconDrawable="@drawable/ic_insulation">
-
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/autoInsulation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:inputType="none"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:importantForAutofill="no"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutFloor"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/floor_type"
-            app:endIconMode="dropdown_menu"
-            app:startIconDrawable="@drawable/ic_floor">
-
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/autoFloor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:inputType="none"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:importantForAutofill="no"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutSystem"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/system_type"
-            app:endIconMode="dropdown_menu"
-            app:startIconDrawable="@drawable/ic_floor_heating">
-
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/autoSystem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:inputType="none"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:importantForAutofill="no"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutRadiatorPower"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/radiator_power"
-            app:startIconDrawable="@drawable/ic_radiator"
-            app:suffixText="@string/unit_watt">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editRadiatorPower"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutFloorArea"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/floor_area"
-            app:startIconDrawable="@drawable/ic_floor_heating"
-            app:suffixText="@string/unit_square_meter">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editFloorArea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutDhwPoints"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="@string/dhw_points"
-            app:endIconMode="dropdown_menu"
-            app:startIconDrawable="@drawable/ic_radiator">
-
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/autoDhwPoints"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:inputType="none"
-                android:cursorVisible="false"
-                android:focusable="false"
-                android:importantForAutofill="no"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCalculate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/calculate"
-            android:textSize="18sp"
-            app:icon="@drawable/ic_calculate"
-            app:iconPadding="8dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnReset"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/reset" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnShare"
-            style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/share_report"
-            app:icon="@drawable/ic_share"
-            app:iconPadding="8dp" />
-
-        <TextView
-            android:id="@+id/textResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/result_placeholder"
-            android:textAppearance="?attr/textAppearanceTitleMedium" />
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>
