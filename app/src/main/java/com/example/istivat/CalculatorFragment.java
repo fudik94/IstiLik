@@ -435,7 +435,7 @@ public class CalculatorFragment extends Fragment {
     private void shareReport() {
         if (lastInput == null || lastResult == null) return;
         try {
-            File pdfFile = createPdfReport(buildReportText(lastInput, lastResult));
+            File pdfFile = createPdfReport(lastInput, lastResult);
             Uri uri = FileProvider.getUriForFile(requireContext(),
                     requireContext().getPackageName() + ".provider", pdfFile);
             Intent intent = new Intent(Intent.ACTION_SEND);
@@ -472,19 +472,157 @@ public class CalculatorFragment extends Fragment {
         return sb.toString();
     }
 
-    private File createPdfReport(String text) throws IOException {
+    private File createPdfReport(HeatingCalculator.Input input, HeatingCalculator.Result result) throws IOException {
         PdfDocument doc = new PdfDocument();
         PdfDocument.PageInfo info = new PdfDocument.PageInfo.Builder(PDF_PAGE_WIDTH, PDF_PAGE_HEIGHT, 1).create();
         PdfDocument.Page page = doc.startPage(info);
         Canvas canvas = page.getCanvas();
-        Paint paint = new Paint();
-        paint.setTextSize(PDF_TEXT_SIZE);
-        paint.setAntiAlias(true);
-        int y = PDF_START_Y;
-        for (String line : text.split("\n")) {
-            canvas.drawText(line, PDF_MARGIN_X, y, paint);
-            y += PDF_LINE_HEIGHT;
+
+        boolean underfloorOnly = input.systemType == HeatingCalculator.SystemType.UNDERFLOOR_ONLY;
+
+        // ── Header background ────────────────────────────────────────────────
+        Paint bgPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        bgPaint.setColor(android.graphics.Color.parseColor("#1A1A24"));
+        canvas.drawRect(0, 0, PDF_PAGE_WIDTH, 110, bgPaint);
+
+        // Flame icon circle
+        Paint circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        circlePaint.setColor(android.graphics.Color.parseColor("#FF6B35"));
+        canvas.drawCircle(52, 55, 26, circlePaint);
+
+        Paint iconTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        iconTextPaint.setColor(android.graphics.Color.WHITE);
+        iconTextPaint.setTextSize(22f);
+        iconTextPaint.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("\u2668", 52, 63, iconTextPaint);
+
+        // App name
+        Paint appNamePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        appNamePaint.setColor(android.graphics.Color.WHITE);
+        appNamePaint.setTextSize(26f);
+        appNamePaint.setFakeBoldText(true);
+        canvas.drawText("IstiLik", 92, 48, appNamePaint);
+
+        // Report subtitle
+        Paint subtitlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        subtitlePaint.setColor(android.graphics.Color.parseColor("#9E9EB0"));
+        subtitlePaint.setTextSize(12f);
+        canvas.drawText(getString(R.string.report_title), 92, 68, subtitlePaint);
+
+        // Date
+        String dateStr = java.text.DateFormat.getDateTimeInstance(
+                java.text.DateFormat.MEDIUM, java.text.DateFormat.SHORT).format(new java.util.Date());
+        Paint datePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        datePaint.setColor(android.graphics.Color.parseColor("#9E9EB0"));
+        datePaint.setTextSize(10f);
+        datePaint.setTextAlign(Paint.Align.RIGHT);
+        canvas.drawText(dateStr, PDF_PAGE_WIDTH - 24, 68, datePaint);
+
+        // ── Orange accent bar ────────────────────────────────────────────────
+        Paint accentPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        accentPaint.setColor(android.graphics.Color.parseColor("#FF6B35"));
+        canvas.drawRect(0, 110, PDF_PAGE_WIDTH, 115, accentPaint);
+
+        // ── Section: Parameters ──────────────────────────────────────────────
+        int y = 148;
+        int labelX = PDF_MARGIN_X;
+        int valueX = PDF_PAGE_WIDTH / 2 + 20;
+
+        Paint sectionLabelPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        sectionLabelPaint.setColor(android.graphics.Color.parseColor("#FF6B35"));
+        sectionLabelPaint.setTextSize(11f);
+        sectionLabelPaint.setFakeBoldText(true);
+        canvas.drawText("PARAMETERS", labelX, y, sectionLabelPaint);
+        y += 6;
+
+        Paint dividerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        dividerPaint.setColor(android.graphics.Color.parseColor("#E0E0E0"));
+        canvas.drawLine(labelX, y, PDF_PAGE_WIDTH - PDF_MARGIN_X, y, dividerPaint);
+        y += 18;
+
+        Paint keyPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        keyPaint.setColor(android.graphics.Color.parseColor("#555555"));
+        keyPaint.setTextSize(12f);
+
+        Paint valuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        valuePaint.setColor(android.graphics.Color.parseColor("#111111"));
+        valuePaint.setTextSize(12f);
+        valuePaint.setFakeBoldText(true);
+
+        // Parameters rows
+        String[][] params = {
+            {getString(R.string.area), String.format(Locale.getDefault(), "%.1f m\u00B2", input.area)},
+            {getString(R.string.height), String.format(Locale.getDefault(), "%.1f m", input.height)},
+            {getString(R.string.housing_type), input.housingType == HeatingCalculator.HousingType.HOUSE
+                    ? getString(R.string.housing_house) : getString(R.string.housing_apartment)},
+            {getString(R.string.walls), String.valueOf(input.wallCount)},
+            {getString(R.string.insulation), mapInsulationName(input.insulationLevel)},
+            {getString(R.string.floor_type), input.floorType == HeatingCalculator.FloorType.ATTIC
+                    ? getResources().getStringArray(R.array.floor_array)[1]
+                    : getResources().getStringArray(R.array.floor_array)[0]},
+            {getString(R.string.dhw_points), String.valueOf(input.dhwPoints)},
+        };
+
+        if (!underfloorOnly) {
+            params = appendParam(params, getString(R.string.radiator_power),
+                    String.format(Locale.getDefault(), "%.0f W", input.radiatorPower));
         }
+        if (input.floorArea > 0) {
+            params = appendParam(params, getString(R.string.floor_area),
+                    String.format(Locale.getDefault(), "%.1f m\u00B2", input.floorArea));
+        }
+
+        for (String[] row : params) {
+            canvas.drawText(row[0], labelX, y, keyPaint);
+            canvas.drawText(row[1], valueX, y, valuePaint);
+            y += PDF_LINE_HEIGHT + 2;
+        }
+
+        y += 10;
+        canvas.drawLine(labelX, y, PDF_PAGE_WIDTH - PDF_MARGIN_X, y, dividerPaint);
+        y += 22;
+
+        // ── Section: Results ─────────────────────────────────────────────────
+        canvas.drawText("RESULTS", labelX, y, sectionLabelPaint);
+        y += 6;
+        canvas.drawLine(labelX, y, PDF_PAGE_WIDTH - PDF_MARGIN_X, y, dividerPaint);
+        y += 22;
+
+        Paint resultKeyPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        resultKeyPaint.setColor(android.graphics.Color.parseColor("#555555"));
+        resultKeyPaint.setTextSize(13f);
+
+        Paint resultValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        resultValuePaint.setColor(android.graphics.Color.parseColor("#FF6B35"));
+        resultValuePaint.setTextSize(18f);
+        resultValuePaint.setFakeBoldText(true);
+
+        canvas.drawText(getString(R.string.result_label_power), labelX, y, resultKeyPaint);
+        canvas.drawText(String.format(Locale.getDefault(), "%.1f kW", result.requiredPowerKw),
+                valueX, y, resultValuePaint);
+        y += PDF_LINE_HEIGHT + 8;
+
+        if (!underfloorOnly) {
+            canvas.drawText(getString(R.string.result_label_sections), labelX, y, resultKeyPaint);
+            canvas.drawText(result.radiatorSections + " pcs", valueX, y, resultValuePaint);
+            y += PDF_LINE_HEIGHT + 8;
+        }
+
+        canvas.drawText(getString(R.string.result_label_boiler), labelX, y, resultKeyPaint);
+        canvas.drawText(result.recommendedBoilerKw + " kW", valueX, y, resultValuePaint);
+
+        // ── Footer ───────────────────────────────────────────────────────────
+        Paint footerBgPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        footerBgPaint.setColor(android.graphics.Color.parseColor("#F5F5F5"));
+        canvas.drawRect(0, PDF_PAGE_HEIGHT - 36, PDF_PAGE_WIDTH, PDF_PAGE_HEIGHT, footerBgPaint);
+
+        Paint footerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        footerPaint.setColor(android.graphics.Color.parseColor("#9E9EB0"));
+        footerPaint.setTextSize(10f);
+        canvas.drawText("IstiLik \u2014 Heating Calculator", labelX, PDF_PAGE_HEIGHT - 16, footerPaint);
+        footerPaint.setTextAlign(Paint.Align.RIGHT);
+        canvas.drawText(dateStr, PDF_PAGE_WIDTH - PDF_MARGIN_X, PDF_PAGE_HEIGHT - 16, footerPaint);
+
         doc.finishPage(page);
         File file = new File(requireContext().getCacheDir(), "heating_report.pdf");
         try (FileOutputStream out = new FileOutputStream(file)) {
@@ -493,6 +631,20 @@ public class CalculatorFragment extends Fragment {
             doc.close();
         }
         return file;
+    }
+
+    private String mapInsulationName(HeatingCalculator.InsulationLevel level) {
+        String[] arr = getResources().getStringArray(R.array.insulation_array);
+        if (level == HeatingCalculator.InsulationLevel.GOOD) return arr[0];
+        if (level == HeatingCalculator.InsulationLevel.POOR) return arr[2];
+        return arr[1];
+    }
+
+    private String[][] appendParam(String[][] original, String key, String value) {
+        String[][] newArr = new String[original.length + 1][2];
+        System.arraycopy(original, 0, newArr, 0, original.length);
+        newArr[original.length] = new String[]{key, value};
+        return newArr;
     }
 
     // ── Utilities ────────────────────────────────────────────────────────────
