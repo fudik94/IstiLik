@@ -22,7 +22,7 @@ public final class PreferencesHelper {
     static final String KEY_ADVANCED_EXPANDED = "advanced_expanded";
 
     private static final String DEFAULT_RADIATOR_POWER = "180";
-    static final String[] LANGUAGE_CODES = {"az", "ru", "en"};
+    static final String[] LANGUAGE_CODES = {"az", "ru", "en", "et"};
 
     private final SharedPreferences prefs;
 

@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="housing_array">
-        <item>Квартира</item>
-        <item>Частный дом</item>
+        <item>Korter</item>
+        <item>Maja</item>
     </string-array>
 
     <string-array name="walls_array">
@@ -12,19 +13,19 @@
     </string-array>
 
     <string-array name="insulation_array">
-        <item>Хорошая</item>
-        <item>Средняя</item>
-        <item>Плохая</item>
+        <item>Hea</item>
+        <item>Keskmine</item>
+        <item>Halb</item>
     </string-array>
 
     <string-array name="floor_array">
-        <item>Обычный</item>
-        <item>Мансардный</item>
+        <item>Standard</item>
+        <item>Pööningukorrus</item>
     </string-array>
 
     <string-array name="system_array">
-        <item>Смешанная система</item>
-        <item>Только тёплый пол</item>
+        <item>Kombineeritud süsteem</item>
+        <item>Ainult põrandaküte</item>
     </string-array>
 
     <string-array name="dhw_points_array">
@@ -40,9 +41,9 @@
     </string-array>
 
     <string-array name="language_options_array">
-        <item>Азербайджанский</item>
-        <item>Русский</item>
-        <item>English</item>
-        <item>Эстонский</item>
+        <item>Aserbaidžaani</item>
+        <item>Vene</item>
+        <item>Inglise</item>
+        <item>Eesti</item>
     </string-array>
 </resources>

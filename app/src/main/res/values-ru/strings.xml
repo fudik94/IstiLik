@@ -23,11 +23,13 @@
     <string name="menu_about">О приложении</string>
     <string name="menu_history">История расчётов</string>
     <string name="language_title">Выберите язык</string>
-    <string name="about_message">IstiLik помогает оценить теплопотери и мощность котла.</string>
+    <string name="about_message">IstiLik v1.0\n\nПриложение помогает рассчитать тепловую нагрузку, количество секций радиаторов и рекомендуемую мощность котла.\n\nФормула адаптирована для климата Азербайджана.\n\n📧 info@istilik.az\n🌐 istilik.az</string>
     <string name="history_empty">История расчётов пуста</string>
     <string name="history_entry">%1$s • %2$s м² • %3$d кВт</string>
     <string name="clear_history">Очистить историю</string>
     <string name="history_cleared">История очищена</string>
+    <string name="history_save_name_title">Название расчёта</string>
+    <string name="history_save_name_hint">Напр.: Спальня, Гостиная…</string>
 
     <string name="error_fill">Пожалуйста, заполните все поля</string>
     <string name="error_required">Это поле обязательно</string>
