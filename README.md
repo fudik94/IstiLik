@@ -1,10 +1,10 @@
-# IstiLik — Heating Calculator
+#  🔥 IstiLik  Heating Calculator
 
 Android app for calculating the required heating power for rooms, apartments, and houses — designed for the Azerbaijani climate.
 
 ---
 
-## Features
+## 🧮 Features
 
 **Calculator**
 - Room area, ceiling height, housing type (apartment / house)
@@ -34,32 +34,8 @@ Android app for calculating the required heating power for rooms, apartments, an
 
 ## Screenshots
 
-<img src="https://github.com/user-attachments/assets/ea47815a-e0b8-4c4e-b8d9-df6e09628821" width="300" alt="App Screenshot">
+<img src="https://github.com/user-attachments/assets/96e39cf5-5fb2-4507-9f0e-e97efe079263" width="300" alt="App Screenshot">
 
----
-
-## Calculation Formula
-
-```
-heatLoss = area × baseLoad × heightFactor × insulationFactor × wallFactor × floorFactor
-```
-
-| Parameter | Value |
-|-----------|-------|
-| Base load — apartment | 100 W/m² |
-| Base load — house | 120 W/m² |
-| Height reference | 2.7 m |
-| Insulation — good | ×0.85 |
-| Insulation — average | ×1.0 |
-| Insulation — poor | ×1.2 |
-| Each extra exterior wall | +10% |
-| Attic floor | ×1.1 |
-| Underfloor heating offset | −75 W/m² of floor area |
-| Each DHW point | +1 kW |
-
-Boiler size tiers: **24 / 28 / 32 / 40 / 50 kW**
-
----
 
 ## Tech Stack
 
