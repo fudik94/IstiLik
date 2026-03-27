@@ -139,8 +139,26 @@ public class CalculatorFragment extends Fragment {
 
     private void setupDropdown(MaterialAutoCompleteTextView view, int arrayResId,
                                 PositionListener listener) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(),
-                R.layout.spinner_item, getResources().getStringArray(arrayResId));
+        final String[] items = getResources().getStringArray(arrayResId);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(),
+                R.layout.spinner_item, items) {
+            @Override
+            public android.widget.Filter getFilter() {
+                return new android.widget.Filter() {
+                    @Override
+                    protected FilterResults performFiltering(CharSequence c) {
+                        FilterResults r = new FilterResults();
+                        r.values = items;
+                        r.count = items.length;
+                        return r;
+                    }
+                    @Override
+                    protected void publishResults(CharSequence c, FilterResults r) {
+                        notifyDataSetChanged();
+                    }
+                };
+            }
+        };
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         view.setAdapter(adapter);
         view.setOnItemClickListener((parent, v, position, id) -> {

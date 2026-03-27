@@ -23,7 +23,7 @@
     <string name="menu_about">About app</string>
     <string name="menu_history">Calculation history</string>
     <string name="language_title">Select language</string>
-    <string name="about_message">IstiLik v1.0\n\nThis app helps you calculate the heating load, number of radiator sections, and recommended boiler size for your room or apartment.\n\nThe formula is adapted for the Azerbaijani climate.\n\n📧 info@istilik.az\n🌐 istilik.az</string>
+    <string name="about_message">IstiLik v1.0\n\nThis app helps you calculate the heating load, number of radiator sections, and recommended boiler (combi) size for your home.\n\nThe formula is adapted for the Azerbaijani climate.\n\n📧 istilik.info@gmail.com</string>
     <string name="history_empty">No calculation history yet</string>
     <string name="history_entry">%1$s • %2$s m² • %3$d kW</string>
     <string name="clear_history">Clear history</string>

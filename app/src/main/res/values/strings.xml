@@ -23,7 +23,7 @@
     <string name="menu_about">Tətbiq haqqında</string>
     <string name="menu_history">Hesablama tarixçəsi</string>
     <string name="language_title">Dil seçin</string>
-    <string name="about_message">IstiLik v1.0\n\nBu tətbiq sizin otağınızın istilik yükünü, radiator seksiyalarının sayını və tövsiyə olunan qazan gücünü hesablamağa kömək edir.\n\nDüstur Azərbaycan iqlim şəraitinə uyğunlaşdırılmışdır.\n\n📧 info@istilik.az\n🌐 istilik.az</string>
+    <string name="about_message">IstiLik v1.0\n\nBu tətbiq sizin evinizin istilik yükünü, radiator seksiyalarının sayını və tövsiyə olunan qazan(kombi) gücünü hesablamağa kömək edir.\n\nDüstur Azərbaycan iqlim şəraitinə uyğunlaşdırılmışdır.\n\n📧 istilik.info@gmail.com</string>
     <string name="history_empty">Hesablama tarixçəsi boşdur</string>
     <string name="history_entry">%1$s • %2$s m² • %3$d kW</string>
     <string name="clear_history">Tarixçəni təmizlə</string>

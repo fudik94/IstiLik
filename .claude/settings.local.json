@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:mrcombi.com)",
+      "WebFetch(domain:buildops.com)",
+      "WebSearch",
+      "Bash(./gradlew clean:*)",
+      "Bash(./gradlew assembleDebug --info)",
+      "Bash(ls -la \"D:\\\\git_hub\\\\Isttilik_lv\\\\IstiLik\\\\app\\\\src\\\\main\\\\res\\\\values-night\"\" 2>&1 || echo \"Directory check result \")",
+      "Bash(./gradlew assembleDebug)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(./gradlew test:*)",
+      "Bash(./gradlew :app:testDebugUnitTest --tests \"com.example.istivat.HistoryManagerTest\")",
+      "Bash(./gradlew testDebugUnitTest)",
+      "Bash(./gradlew help:*)",
+      "Bash(./gradlew :app:compileDebugJavaWithJavac)",
+      "Bash(./gradlew :app:compileDebugUnitTestJavaWithJavac)",
+      "Bash(./gradlew compileDebugResources)",
+      "Bash(./gradlew mergeDebugResources)",
+      "Bash(javac -cp \".:app/src/main/java\" -d /tmp app/src/main/java/com/example/istivat/HistoryAdapter.java)"
+    ]
+  }
+}
