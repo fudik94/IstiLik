@@ -33,9 +33,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String[] entry = entries.get(position);
-        holder.textDate.setText(entry[0]);
-        holder.textArea.setText(entry[1] + " m²");
-        holder.textBoiler.setText(entry[2] + " kW");
+        String name = entry[0];
+        String date = entry[1];
+        holder.textDate.setText(name.isEmpty() ? date : name);
+        holder.textArea.setText(name.isEmpty() ? entry[2] + " m²" : date + " · " + entry[2] + " m²");
+        holder.textBoiler.setText(entry[3] + " kW");
         holder.itemView.setOnClickListener(v -> listener.onItemClick(entry));
     }
 

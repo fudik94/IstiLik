@@ -353,8 +353,23 @@ public class CalculatorFragment extends Fragment {
 
     private void saveToHistory() {
         if (lastInput == null || lastResult == null) return;
-        historyManager.addEntry(lastInput, lastResult);
-        Toast.makeText(requireContext(), getString(R.string.save_to_history), Toast.LENGTH_SHORT).show();
+
+        android.widget.EditText nameInput = new android.widget.EditText(requireContext());
+        nameInput.setHint(getString(R.string.history_save_name_hint));
+        nameInput.setSingleLine(true);
+        int padding = (int) (16 * getResources().getDisplayMetrics().density);
+        nameInput.setPadding(padding, padding, padding, padding);
+
+        new com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.history_save_name_title)
+                .setView(nameInput)
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    String name = nameInput.getText().toString().trim();
+                    historyManager.addEntry(name, lastInput, lastResult);
+                    Toast.makeText(requireContext(), getString(R.string.save_to_history), Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 
     // ── Reset ────────────────────────────────────────────────────────────────
