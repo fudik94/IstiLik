@@ -1,7 +1,9 @@
 package com.example.istivat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
@@ -55,6 +57,9 @@ public class CalculatorFragment extends Fragment {
     private TextView textResultPower, textResultSections, textResultBoiler;
     private LinearLayout layoutResultSections;
 
+    // Locale-aware context for string array lookups
+    private Context localizedContext;
+
     // State
     private int wallsPosition = 0, insulationPosition = 0, floorPosition = 0, dhwPosition = 0;
     private HeatingCalculator.Result lastResult;
@@ -80,6 +85,13 @@ public class CalculatorFragment extends Fragment {
                 .getSharedPreferences(PreferencesHelper.PREFS_NAME, android.content.Context.MODE_PRIVATE);
         prefsHelper = new PreferencesHelper(prefs);
         historyManager = new HistoryManager(prefs);
+
+        // Build a context that is guaranteed to use the saved language locale
+        String language = prefsHelper.loadLanguage();
+        Locale locale = new Locale(language);
+        Configuration config = new Configuration(requireContext().getResources().getConfiguration());
+        config.setLocale(locale);
+        localizedContext = requireContext().createConfigurationContext(config);
 
         bindViews(view);
         setupDropdowns();
@@ -139,8 +151,8 @@ public class CalculatorFragment extends Fragment {
 
     private void setupDropdown(MaterialAutoCompleteTextView view, int arrayResId,
                                 PositionListener listener) {
-        final String[] items = getResources().getStringArray(arrayResId);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(),
+        final String[] items = localizedContext.getResources().getStringArray(arrayResId);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(localizedContext,
                 R.layout.spinner_item, items) {
             @Override
             public android.widget.Filter getFilter() {
@@ -684,15 +696,10 @@ public class CalculatorFragment extends Fragment {
 
     private void setDropdownPosition(MaterialAutoCompleteTextView view, int arrayResId,
                                      int position, PositionListener listener) {
-        String[] entries = getResources().getStringArray(arrayResId);
+        String[] entries = localizedContext.getResources().getStringArray(arrayResId);
         int safe = Math.min(Math.max(position, 0), entries.length - 1);
         listener.onPosition(safe);
-        // Prefer the adapter's item so the displayed text always matches the dropdown list locale
-        android.widget.ListAdapter adapter = view.getAdapter();
-        String text = (adapter != null && safe < adapter.getCount())
-                ? (String) adapter.getItem(safe)
-                : entries[safe];
-        view.setText(text, false);
+        view.setText(entries[safe], false);
     }
 
     private Double parseDouble(TextInputEditText editText) {
