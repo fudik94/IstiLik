@@ -1,53 +1,78 @@
-# 🔥 IstiLik  Heating Calculator App
+# IstiLik — Heating Calculator
 
-**IstiLik** is a simple Android application that helps users calculate the required heating power for a room, house, or apartment.  
-It is designed for the **Azerbaijani climate** and uses formulas optimized for local conditions.
+Android app for calculating the required heating power for rooms, apartments, and houses — designed for the Azerbaijani climate.
 
-## 🧮 Features
+---
 
-- Enter key parameters:
-  - Room area (m²)  
-  - Ceiling height (m)  
-  - Housing type (house or apartment)  
-  - Wall count  
-  - Insulation level  
-  - Floor type  
-  - Radiator section power (W)  
-  - Floor heating area (m²)
-- Calculates:
-  - Required radiator sections  
-  - Total heating power (kWt)  
-  - Recommended boiler power
-- Material Design 3 UI with dark mode  
-- Live input validation  
-- Saves the last inputs and results locally  
-- PDF report sharing (e.g. via WhatsApp)  
-- Optimized for Android devices
+## Features
 
-## 🌍 Language
+**Calculator**
+- Room area, ceiling height, housing type (apartment / house)
+- Number of exterior walls, insulation level, floor type (standard / attic)
+- Heating system type: combined (radiators + underfloor) or underfloor only
+- Domestic hot water (DHW) points
+- Live results: heat loss (W), radiator sections, boiler power recommendation
 
-The interface is available in **Azerbaijani**, with prepared resources for **English** and **Russian**.  
-All formulas are adapted for the **Azerbaijan region** and its climate conditions.
+**History**
+- Save calculations with a custom name
+- Browse past results, reload any entry into the calculator
 
-## ⚙️ Technologies
+**PDF Report**
+- Generate a professional PDF summary of any calculation
+- Share directly via WhatsApp, email, or any app
 
-- **Language:** Java  
-- **IDE:** Android Studio  
-- **Framework:** Android SDK  
-- **Min SDK:** 21+ (Android 5.0 Lollipop)
+**Multilingual**
+- Azerbaijani, Russian, English, Estonian
+- Language switcher in the app menu — no system settings needed
 
-## 🚀 Future Plans
+**Other**
+- Permanent dark theme (Material Design 3)
+- All inputs auto-saved — picks up where you left off
+- Input validation (floor area ≤ room area, required fields, etc.)
 
-- Add more detailed climate presets  
-- Export results to additional formats  
+---
 
-
-## 📷 Screenshots
+## Screenshots
 
 <img src="https://github.com/user-attachments/assets/ea47815a-e0b8-4c4e-b8d9-df6e09628821" width="300" alt="App Screenshot">
 
+---
 
-### 💡 Author
+## Calculation Formula
 
-Developed by Fuad 
-📍 Based in Estonia  
+```
+heatLoss = area × baseLoad × heightFactor × insulationFactor × wallFactor × floorFactor
+```
+
+| Parameter | Value |
+|-----------|-------|
+| Base load — apartment | 100 W/m² |
+| Base load — house | 120 W/m² |
+| Height reference | 2.7 m |
+| Insulation — good | ×0.85 |
+| Insulation — average | ×1.0 |
+| Insulation — poor | ×1.2 |
+| Each extra exterior wall | +10% |
+| Attic floor | ×1.1 |
+| Underfloor heating offset | −75 W/m² of floor area |
+| Each DHW point | +1 kW |
+
+Boiler size tiers: **24 / 28 / 32 / 40 / 50 kW**
+
+---
+
+## Tech Stack
+
+- **Language:** Java
+- **Min SDK:** 24 (Android 7.0) | **Target SDK:** 36
+- **UI:** Material Design 3, Fragment-based navigation
+- **PDF:** Android `PdfDocument` + `Canvas`
+- **Storage:** `SharedPreferences`
+- **Build:** Gradle with Kotlin DSL
+
+---
+
+## Contact
+
+**istilik.info@gmail.com**
+Developed by Fuad — based in Estonia
