@@ -687,7 +687,12 @@ public class CalculatorFragment extends Fragment {
         String[] entries = getResources().getStringArray(arrayResId);
         int safe = Math.min(Math.max(position, 0), entries.length - 1);
         listener.onPosition(safe);
-        view.setText(entries[safe], false);
+        // Prefer the adapter's item so the displayed text always matches the dropdown list locale
+        android.widget.ListAdapter adapter = view.getAdapter();
+        String text = (adapter != null && safe < adapter.getCount())
+                ? (String) adapter.getItem(safe)
+                : entries[safe];
+        view.setText(text, false);
     }
 
     private Double parseDouble(TextInputEditText editText) {
