@@ -151,8 +151,13 @@ public class CalculatorFragment extends Fragment {
 
     private void setupDropdown(MaterialAutoCompleteTextView view, int arrayResId,
                                 PositionListener listener) {
+        // Disable Android's automatic view state save/restore so our locale-aware
+        // text is never overwritten by old saved state after language change
+        view.setSaveEnabled(false);
+
         final String[] items = localizedContext.getResources().getStringArray(arrayResId);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(localizedContext,
+        // Use requireContext() for theming (dark theme), localizedContext only for strings
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(),
                 R.layout.spinner_item, items) {
             @Override
             public android.widget.Filter getFilter() {
