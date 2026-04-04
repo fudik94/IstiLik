@@ -1,4 +1,4 @@
-# IstiLik — Heating Calculator
+# IstiLik - Heating Calculator
 
 Android app for calculating the required heating power for rooms, apartments, and houses — designed for the Azerbaijani climate.
 
@@ -34,7 +34,10 @@ Android app for calculating the required heating power for rooms, apartments, an
 
 ## Screenshots
 
-<img src="https://github.com/user-attachments/assets/ea47815a-e0b8-4c4e-b8d9-df6e09628821" width="300" alt="App Screenshot">
+
+| | |
+|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/0d082443-9cb8-4569-82a3-413c61053a28" width="300" alt="App Screenshot"> | <img src="https://github.com/user-attachments/assets//40e6cd06-4c5c-4d43-935e-fcb2674274d7" width="300" alt="App Screenshot"> |
 
 ---
 
@@ -75,4 +78,4 @@ Boiler size tiers: **24 / 28 / 32 / 40 / 50 kW**
 ## Contact
 
 **istilik.info@gmail.com**
-Developed by Fuad — based in Estonia
+Developed by Fuad - based in Estonia 🇪🇪
