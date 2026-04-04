@@ -1,11 +1,14 @@
 package com.example.istivat;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,11 +28,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences prefs = getSharedPreferences(PreferencesHelper.PREFS_NAME, MODE_PRIVATE);
         prefsHelper = new PreferencesHelper(prefs);
-        applySavedLocale();
         setContentView(R.layout.activity_main);
 
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar, (v, windowInsets) -> {
+            int statusBarHeight = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars()).top;
+            toolbar.setPadding(0, statusBarHeight, 0, 0);
+            return windowInsets;
+        });
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         bottomNav = findViewById(R.id.bottomNav);
         calculatorFragment = new CalculatorFragment();
@@ -73,13 +83,15 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
     }
 
-    private void applySavedLocale() {
-        String language = prefsHelper.loadLanguage();
+    @Override
+    protected void attachBaseContext(Context base) {
+        SharedPreferences prefs = base.getSharedPreferences(PreferencesHelper.PREFS_NAME, MODE_PRIVATE);
+        String language = prefs.getString(PreferencesHelper.KEY_LANGUAGE, PreferencesHelper.LANGUAGE_CODES[0]);
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
-        Configuration config = new Configuration(getResources().getConfiguration());
+        Configuration config = new Configuration();
         config.setLocale(locale);
-        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        super.attachBaseContext(base.createConfigurationContext(config));
     }
 
     private void showLanguageDialog() {

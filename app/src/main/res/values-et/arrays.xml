@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="housing_array">
-        <item>Mənzil</item>
-        <item>Həyət evi</item>
+        <item>Korter</item>
+        <item>Maja</item>
     </string-array>
 
     <string-array name="walls_array">
@@ -12,19 +13,19 @@
     </string-array>
 
     <string-array name="insulation_array">
-        <item>Yaxşı</item>
-        <item>Orta</item>
-        <item>Pis</item>
+        <item>Hea</item>
+        <item>Keskmine</item>
+        <item>Halb</item>
     </string-array>
 
     <string-array name="floor_array">
-        <item>Adi</item>
-        <item>Mansard</item>
+        <item>Standard</item>
+        <item>Pööningukorrus</item>
     </string-array>
 
     <string-array name="system_array">
-        <item>Qarışıq sistem</item>
-        <item>Yalnız isti döşəmə</item>
+        <item>Kombineeritud süsteem</item>
+        <item>Ainult põrandaküte</item>
     </string-array>
 
     <string-array name="dhw_points_array">

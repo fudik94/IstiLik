@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IstiLik</string>
+
+    <string name="area">Pindala</string>
+    <string name="height">Lae kõrgus</string>
+    <string name="housing_type">Hoone tüüp</string>
+    <string name="walls">Välisseinte arv</string>
+    <string name="insulation">Soojustuse tase</string>
+    <string name="floor_type">Põranda tüüp</string>
+    <string name="system_type">Süsteemi tüüp</string>
+    <string name="radiator_power">Radiaatori sektsiooni võimsus</string>
+    <string name="floor_area">Põrandakütteala</string>
+    <string name="dhw_points">Sooja vee kraanid</string>
+    <string name="unit_square_meter">m²</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_watt">W</string>
+
+    <string name="calculate">Arvuta</string>
+    <string name="reset">Lähtesta</string>
+    <string name="share_report">Jaga aruannet</string>
+
+    <string name="menu_change_language">Vaheta keelt</string>
+    <string name="menu_about">Rakenduse kohta</string>
+    <string name="menu_history">Arvestuste ajalugu</string>
+    <string name="language_title">Vali keel</string>
+    <string name="about_message">IstiLik v1.0\n\nSee rakendus aitab arvutada kodu küttekoormus, radiaatorisektsioonide arvu ja soovitusliku katla (kombi) võimsuse.\n\nValem on kohandatud Aserbaidžaani kliimale.\n\n📧 istilik.info@gmail.com</string>
+    <string name="history_empty">Arvestuste ajalugu on tühi</string>
+    <string name="history_entry">%1$s • %2$s m² • %3$d kW</string>
+    <string name="clear_history">Kustuta ajalugu</string>
+    <string name="history_cleared">Ajalugu kustutatud</string>
+    <string name="history_save_name_title">Pane arvestusele nimi</string>
+    <string name="history_save_name_hint">Nt: Magamistuba, Elutuba…</string>
+
+    <string name="error_fill">Palun täitke kõik väljad</string>
+    <string name="error_required">See väli on kohustuslik</string>
+    <string name="error_invalid_area">Pindala peab olema 5–1000 m²</string>
+    <string name="error_invalid_height">Kõrgus peab olema 2–6 m</string>
+    <string name="error_invalid_radiator">Radiaatori võimsus peab olema 50–500 W</string>
+    <string name="error_invalid_floor_area">Põrandakütteala peab olema 0–%1$.0f m²</string>
+
+    <string name="result_placeholder">Teie tulemus kuvatakse siin</string>
+    <string name="result_power">Vajalik küttevõimsus: %1$.1f kW</string>
+    <string name="result_sections">Radiaatori sektsioonid: %1$d</string>
+    <string name="result_boiler">Soovitatav katel: %1$d kW</string>
+    <string name="report_title">Küttearvestuse aruanne</string>
+    <string name="report_share_title">Jaga aruannet</string>
+    <string name="report_share_error">Aruannet ei saanud luua</string>
+    <string name="report_share_message">Jagage aruannet WhatsAppi või mõne muu rakenduse kaudu.</string>
+
+    <string name="advanced_params_show">Täiendavad parameetrid ▼</string>
+    <string name="advanced_params_hide">Peida parameetrid ▲</string>
+    <string name="save_to_history">Salvestatud ajalukku</string>
+
+    <string name="housing_apartment">Korter</string>
+    <string name="housing_house">Maja</string>
+
+    <string name="system_radiators">Radiaatorid</string>
+    <string name="system_underfloor">Põrandaküte</string>
+    <string name="system_mixed">Kombineeritud</string>
+
+    <string name="nav_calculator">Kalkulaator</string>
+    <string name="nav_history">Ajalugu</string>
+
+    <string name="result_label_power">Vajalik võimsus</string>
+    <string name="result_label_sections">Radiaatori sektsioonid</string>
+    <string name="result_label_boiler">Soovitatav katel</string>
+    <string name="result_dash">—</string>
+    <string name="result_unit_kw">kW</string>
+    <string name="result_unit_sections">tk</string>
+</resources>

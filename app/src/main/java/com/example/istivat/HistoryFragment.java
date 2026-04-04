@@ -66,7 +66,7 @@ public class HistoryFragment extends Fragment {
         requireActivity().getSharedPreferences(PreferencesHelper.PREFS_NAME,
                 android.content.Context.MODE_PRIVATE)
                 .edit()
-                .putString(PreferencesHelper.KEY_AREA, entry[1])
+                .putString(PreferencesHelper.KEY_AREA, entry[2])
                 .apply();
         if (requireActivity() instanceof MainActivity) {
             ((MainActivity) requireActivity()).switchToCalculator();
